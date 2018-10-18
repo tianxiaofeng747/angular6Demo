@@ -1,0 +1,7 @@
+{
+    "/gateway": {
+      "target": "http://ypt.dev.cloudyigou.com",
+      "changeOrigin": true,
+      "logLevel":"debug"
+    }
+  }

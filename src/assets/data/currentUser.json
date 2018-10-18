@@ -1,0 +1,13 @@
+{
+    "code": "SUCCESS",
+    "data": {
+        "authedEnterpriseMaps": {},
+        "clientId": "79b3bfa7a63c4e23855f0467a9705b41",
+        "isVirtual": false,
+        "platform": "YPT",
+        "remoteIpAddr": "172.30.32.217",
+        "token": "14b76de854cd72986fd5cf2e0b49b390",
+        "userAgent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36",
+        "userName": "未登录游客"
+    }
+}
