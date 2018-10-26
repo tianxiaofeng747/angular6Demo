@@ -1,0 +1,7 @@
+<ul class="fileList list-inline">
+  <li *ngFor="let item of files" >
+      <a class="boxer" [href]="item.fullUrl" appMyBoxer>
+          <img [src]="item.thumbnail" [width] ="width" [height]="width">
+      </a>
+  </li>
+</ul>

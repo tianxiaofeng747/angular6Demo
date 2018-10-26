@@ -86,10 +86,10 @@ const parseNum = (num) => {
         } else if (['rar', 'zip'].includes(strPostfix)) {
             return 'package';
         } else {
-            return false; // 不支持的文件类型
+            return ''; // 不支持的文件类型
         }
     }
-    return null;
+    return '';
 };
 
 
@@ -261,6 +261,8 @@ function trim(str){
 export let Tools = {
     encryption,
     reverseData,
+    getFileType,
+    changeImgSize,
     //手机正则
     telReg: /^1[3|4|5|8|9][0-9]\d{4,8}$/,
     emailReg: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,

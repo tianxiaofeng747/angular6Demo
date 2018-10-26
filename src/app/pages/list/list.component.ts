@@ -1,4 +1,4 @@
-import { ApiService } from '@/service/api.service';
+import { ApiService } from '@/app/service/api.service';
 import { Component, OnInit } from '@angular/core';
 
 const URL = {

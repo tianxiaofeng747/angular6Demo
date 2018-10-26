@@ -20,6 +20,8 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { RxDemoComponent } from './pages/rx-demo/rx-demo.component';
 import { ListDetailComponent } from './pages/list/list-detail/list-detail.component';
+import { FileListComponent } from './components/file-list/file-list.component';
+import { MyBoxerDirective } from './directive/my-boxer.directive';
 
 
 registerLocaleData(zh);
@@ -32,7 +34,9 @@ registerLocaleData(zh);
     OtherComponent,
     LoginComponent,
     RxDemoComponent,
-    ListDetailComponent
+    ListDetailComponent,
+    FileListComponent,
+    MyBoxerDirective
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Tools from '@/utils/global.common.ts';
+import Tools from '@/app/utils/global.common.ts';
 import {
   AbstractControl,
   FormBuilder,

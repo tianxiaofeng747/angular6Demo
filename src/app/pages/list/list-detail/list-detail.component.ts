@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from '@/service/api.service';
+import { ApiService } from '@/app/service/api.service';
 const URL = {
   detail: 'ypt.application.getApplication'
 }
@@ -14,7 +14,7 @@ export class ListDetailComponent implements OnInit {
   private form = {
 
   };
-  getDetail(){
+  getDetail() {
     this.api.post(URL.detail, {
       params: {
         id: this.id

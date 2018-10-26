@@ -1,32 +1,32 @@
-<form nz-form >
+<form nz-form>
     <nz-form-item>
-      <nz-form-label [nzSpan]="4"  >产品编码</nz-form-label>
-      <nz-form-control [nzSpan]="18" >
-          <nz-form-text>{{form.appCode}}</nz-form-text>
-      </nz-form-control>
+        <nz-form-label [nzSpan]="4">产品编码</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <nz-form-text>{{form.appCode}}</nz-form-text>
+        </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label [nzSpan]="4"  >产品名称</nz-form-label>
-        <nz-form-control [nzSpan]="18" >
+        <nz-form-label [nzSpan]="4">产品名称</nz-form-label>
+        <nz-form-control [nzSpan]="18">
             <nz-form-text>{{form.appName}}</nz-form-text>
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-          <nz-form-label [nzSpan]="4"  >应用版本</nz-form-label>
-          <nz-form-control [nzSpan]="18" >
-              <nz-form-text>{{form.appVersion}}</nz-form-text>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSpan]="4"  >产品开通协议</nz-form-label>
-            <nz-form-control [nzSpan]="18" >
-                <nz-form-text>{{form.protocolInfo}}</nz-form-text>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-              <nz-form-label [nzSpan]="4"  >产品图标</nz-form-label>
-              <nz-form-control [nzSpan]="18" >
-                  图片
-              </nz-form-control>
-            </nz-form-item>
-  </form>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">应用版本</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <nz-form-text>{{form.appVersion}}</nz-form-text>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">产品开通协议</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <nz-form-text>{{form.protocolInfo}}</nz-form-text>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">产品图标</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <app-file-list [list]="form.appIcon"></app-file-list>
+        </nz-form-control>
+    </nz-form-item>
+</form>
