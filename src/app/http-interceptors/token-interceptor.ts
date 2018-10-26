@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {NzMessageService} from 'ng-zorro-antd';
 import {
     HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse
 
@@ -9,24 +10,20 @@ import { mergeMap, catchError } from 'rxjs/operators';
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
+    constructor(private messge:NzMessageService){
 
-    private handleData(event: HttpResponse<any> | HttpErrorResponse, ): Observable<any> {
+    }
+    private handleData(event: HttpResponse<any>, ): Observable<any> {
         // 业务处理：一些通用操作
-        switch (event.status) {
-            case 200:
-                if (event instanceof HttpResponse) {
-                    const body: any = event.body;
+        let body = event.body;
 
-                    return of(event)
-                }
-                break;
-            case 401: // 未登录状态码
-                //this.goTo('/login');
-                break;
-            case 404:
-            case 500:
+        switch (body.code) {
+            case 'SUCCESS':
+            case 'success':
+                return of(event);
                 break;
             default:
+                this.messge.error(body.message);
                 return of(event);
         }
     }
@@ -41,13 +38,15 @@ export class TokenInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             mergeMap((event: any) => {
                 // 正常返回，处理具体返回参数
+                console.log(event);
                 if (event instanceof HttpResponse && event.status === 200) {
-        
                     return this.handleData(event);//具体处理请求返回数据
                 }
                 return of(event);
             }),
-            catchError((err: HttpErrorResponse) => this.handleData(err))
+            // catchError((err: HttpErrorResponse) => {
+            //     console.error(err);
+            // })
         )
     }
 

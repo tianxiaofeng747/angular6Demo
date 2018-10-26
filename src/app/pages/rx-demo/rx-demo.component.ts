@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ElementRef,ViewChild, ViewContainerRef} from '@angular/core';
-import {fromEvent} from 'rxjs';
+import {of, interval, concat} from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rx-demo',
@@ -14,6 +15,17 @@ export class RxDemoComponent implements OnInit {
   //@ViewChild('tian') viewelement: ElementRef;　
   ngOnInit() {
     console.log(this.viewcontainer);
+    let numbers = of(10,20,30);
+    var letters = of('a', 'b', 'c');
+    
+    let result = interval(1000).pipe(
+      map(item =>{
+        
+      })
+    );
+    result.subscribe(res =>{
+      console.log(res)
+    });
     // let click = fromEvent(this.viewcontainer.element, 'click');
     // click.subscribe( (evt: MouseEvent) =>{
     //   console.log(evt);

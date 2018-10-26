@@ -9,7 +9,7 @@ export class ApiService {
   constructor(private http: HttpClient) {
 
   }
-  post(url, params) {
+  post (url, params): Promise<any>  {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'apiName': url })
     };
@@ -17,16 +17,10 @@ export class ApiService {
     const DEV_MODE: Boolean = false; // true 本地 false远程
     if (DEV_MODE) {
       url = 'assets/data/' + url + '.json';
-      return this.http.get(url, params).pipe(
-        tap(heroes => this.log('fetched heroes')),
-        catchError(this.handleError)
-      );
+      return this.http.get(url, params).toPromise();
     } else {
       let newUrl = '/gateway/' + (url.split('.').length === 1 ? url : 'call');
-      return this.http.post(newUrl, params, httpOptions).pipe(
-        tap(heroes => this.log('fetched heroes')),
-        catchError(this.handleError)
-      );
+      return this.http.post(newUrl, params, httpOptions).toPromise();
     }
 
   }

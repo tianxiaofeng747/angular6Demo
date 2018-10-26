@@ -12,18 +12,24 @@ export class UserService {
   
     this.api.post('currentUser', {
       token: sessionStorage.getItem('token')
-    }).subscribe(result => {
+    }).then(result => {
       let data = result.data;
       sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('clientId', data.clientId);
       this.User = data;
     });
   }
   login (form){
     return new Promise((resolve, reject) =>{      
-      this.api.post('login',form).subscribe(result =>{
+      this.api.post('login',form).then(result =>{
         let data = result.data;
-        Object.assign(this.User, data);
-        resolve(data);
+        if(data){
+          Object.assign(this.User, data);
+          resolve(data);
+        }else{
+          reject(result);
+        }
+        
       });
     })
   

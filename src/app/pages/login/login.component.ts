@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Tools from '@/utils/global.common.ts';
 import {
   AbstractControl,
   FormBuilder,
@@ -26,14 +27,18 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[ i ].markAsDirty();
       this.validateForm.controls[ i ].updateValueAndValidity();
     }
+    let token = sessionStorage.getItem('token');
+    let clientId = sessionStorage.getItem('clientId');
     let obj = {
       userName: this.validateForm.value.userName,
-      password: '' 
+      password: Tools.encryption(this.validateForm.value.password, clientId, token)
     }
     
     this.user.login(obj).then(data =>{
-      console.log(data);
+      //console.log(data);
       this.router.navigate(['./list']);
+    }).catch(err =>{
+
     });
   }
   ngOnInit():void {

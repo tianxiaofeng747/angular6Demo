@@ -1,3 +1,56 @@
-<p>
-  list works!
-</p>
+<form nz-form [nzLayout]="'inline'" >
+  <nz-form-item>
+    <nz-form-label nzFor="keywrods">
+      请输入
+    </nz-form-label>
+    <nz-form-control>
+      <input nz-input placeholder="请输入" [(ngModel)]="keywords" name="keywrods">
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" (click)="getList()">查询</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<nz-table #basicTable [nzData]="list" [nzFrontPagination]="false">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>产品名称</th>
+      <th>产品编码</th>
+      <th>版本</th>
+      <th>应用角色</th>
+      <th>产品地址</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.index}}</td>
+      <td>{{data.appName}}</td>
+      <td>{{data.appCode}}</td>
+      <td>{{data.appVersion}}</td>
+      <td>{{data.appRole}}</td>
+      <td>{{data.appUrl}}</td>
+      <td>
+        <span class="text-success" *ngIf="data.status == 'normal'; else elseBlock">正常</span>
+        <ng-template #elseBlock>
+          失效
+        </ng-template>
+      </td>
+      <td>
+        <button nz-button nzType="primary" (click)="detail(data)">查看</button>
+        <!-- <button nzType="" @click="edit(data)" v-auth:editPage>编辑</button>
+        <button nzType="" @click="auth(data)" v-auth:authPage>授权</button>
+        <button nzType="" @click="update(data)">更新</button> -->
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="产品发布详情"  (nzOnOk)="handleOk()" (nzOnCancel)="handleOk()" nzWidth="800">
+    <app-list-detail [id]="checkedId" *ngIf="isVisible"></app-list-detail>
+</nz-modal>

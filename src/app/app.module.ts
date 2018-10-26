@@ -6,7 +6,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 //拦截器
-import {httpInterceptorProviders} from './http-interceptors/index';
+import {httpInterceptorProviders} from './http-interceptors';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './pages/list/list.component';
@@ -19,6 +19,8 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { RxDemoComponent } from './pages/rx-demo/rx-demo.component';
+import { ListDetailComponent } from './pages/list/list-detail/list-detail.component';
+
 
 registerLocaleData(zh);
 
@@ -29,7 +31,8 @@ registerLocaleData(zh);
     HeroesListComponent,
     OtherComponent,
     LoginComponent,
-    RxDemoComponent
+    RxDemoComponent,
+    ListDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -9,11 +9,11 @@ const routes: Routes = [
   {
     path: '',
     //component: ListComponent
-    redirectTo: 'rx',
+    redirectTo: 'login',
     pathMatch: 'full',
   },{
     path: 'list',
-    component: HeroesListComponent
+    component: ListComponent
   },{
     path: 'other',
     component: OtherComponent
