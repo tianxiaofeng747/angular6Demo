@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     
     this.user.login(obj).then(data =>{
       //console.log(data);
-      this.router.navigate(['./list']);
+      this.router.navigate(['./dashboard/list']);
     }).catch(err =>{
 
     });

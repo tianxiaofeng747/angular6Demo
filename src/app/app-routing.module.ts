@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ListComponent} from './pages/list/list.component';
-import {HeroesListComponent} from './pages/hero-list/hero-list.component';
-import {OtherComponent} from './pages/other/other.component';
-import {LoginComponent} from './pages/login/login.component';
+import { ListComponent } from './pages/list/list.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+import { OtherComponent } from './pages/other/other.component';
+import { LoginComponent } from './pages/login/login.component';
 import { RxDemoComponent } from './pages/rx-demo/rx-demo.component';
 const routes: Routes = [
   {
@@ -11,19 +12,27 @@ const routes: Routes = [
     //component: ListComponent
     redirectTo: 'login',
     pathMatch: 'full',
-  },{
-    path: 'list',
-    component: ListComponent
-  },{
-    path: 'other',
-    component: OtherComponent
-  },{
+  }, {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'list',
+        component: ListComponent
+      },
+      {
+        path: 'other',
+        component: OtherComponent
+      },
+      {
+        path: 'rx',
+        component: RxDemoComponent
+      }
+    ]
+  }, {
     path: 'login',
     component: LoginComponent
-  }, {
-    path: 'rx',
-    component: RxDemoComponent
-  }
+  },
 ];
 
 @NgModule({

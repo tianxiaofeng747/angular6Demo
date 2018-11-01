@@ -22,6 +22,7 @@ import { RxDemoComponent } from './pages/rx-demo/rx-demo.component';
 import { ListDetailComponent } from './pages/list/list-detail/list-detail.component';
 import { FileListComponent } from './components/file-list/file-list.component';
 import { MyBoxerDirective } from './directive/my-boxer.directive';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 registerLocaleData(zh);
@@ -36,7 +37,8 @@ registerLocaleData(zh);
     RxDemoComponent,
     ListDetailComponent,
     FileListComponent,
-    MyBoxerDirective
+    MyBoxerDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
