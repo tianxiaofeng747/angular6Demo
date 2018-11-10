@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import {NzMessageService} from 'ng-zorro-antd';
+import { NzMessageService } from 'ng-zorro-antd';
 import {
     HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse
 
 } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { mergeMap, catchError } from 'rxjs/operators';
+import { Observable, of, throwError} from 'rxjs';
+import { map, mergeMap, catchError } from 'rxjs/operators';
 //import { of } from 'rxjs/observable/of';
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    constructor(private messge:NzMessageService){
+    constructor(private messge: NzMessageService) {
 
     }
     private handleData(event: HttpResponse<any>, ): Observable<any> {
@@ -24,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
                 break;
             default:
                 this.messge.error(body.message);
-                return of(event);
+                return throwError(event.body)
         }
     }
 
@@ -38,7 +38,7 @@ export class TokenInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             mergeMap((event: any) => {
                 // 正常返回，处理具体返回参数
-                console.log(event);
+                //console.log(event);
                 if (event instanceof HttpResponse && event.status === 200) {
                     return this.handleData(event);//具体处理请求返回数据
                 }

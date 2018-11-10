@@ -1,0 +1,50 @@
+<nz-modal [(nzVisible)]="show" nzTitle="新增产品" (nzOnOk)="handleOk()" (nzOnCancel)="handleCancel()" nzWidth="800">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="4" [nzFor]="appName">产品名称</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <nz-select formControlName="appName" nzAllowClear nzPlaceHolder="请选择" (ngModelChange)="handleChangeApp('appName')">
+          <nz-option *ngFor="let item of unReleaseList" [nzValue]="item.appName" [nzLabel]="item.appName"></nz-option>
+        </nz-select>
+        <nz-form-explain *ngIf="validateForm.get('appName').dirty && validateForm.get('appName').errors">必填项</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label  [nzSpan]="4" [nzFor]="appCode">产品编码</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <input nz-input placeholder="" formControlName="appCode">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label  [nzSpan]="4" [nzFor]="appVersion">应用版本</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <input nz-input placeholder="" formControlName="appVersion">
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label  [nzSpan]="4" [nzFor]="appRole">应用角色</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <input nz-input formControlName="appRole" [maxlength]="10" >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label  [nzSpan]="4" [nzFor]="protocolInfo">产品开通协议</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <textarea rows="4" nz-input formControlName="protocolInfo" [maxlength]="1000"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label  [nzSpan]="4" [nzFor]="appType">产品类型</nz-form-label>
+      <nz-form-control [nzSpan]="10">
+        <nz-select formControlName="appType" nzAllowClear nzPlaceHolder="请选择">
+          <nz-option *ngFor="let item of resourceType" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
+        </nz-select>
+        <nz-form-explain *ngIf="validateForm.get('appType').dirty && validateForm.get('appType').errors">必填项</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+
+  </form>
+
+</nz-modal>

@@ -1,3 +1,6 @@
+<div class="right">
+    <button nz-button nzType="primary" (click)="isAdd = true">新增</button>
+</div>
 <form nz-form [nzLayout]="'inline'" >
   <nz-form-item>
     <nz-form-label nzFor="keywrods">
@@ -14,7 +17,7 @@
   </nz-form-item>
 </form>
 
-<nz-table #basicTable [nzData]="list" [nzFrontPagination]="false">
+<nz-table #basicTable [nzData]="list" [nzFrontPagination]="false" [nzTotal]="page.total" [(nzPageIndex)]="page.pageIndex" [nzPageSize]="page.pageSize" (nzPageIndexChange)="getList(page.pageIndex)">
   <thead>
     <tr>
       <th>序号</th>
@@ -54,3 +57,5 @@
 <nz-modal [(nzVisible)]="isVisible" nzTitle="产品发布详情"  (nzOnOk)="handleOk()" (nzOnCancel)="handleOk()" nzWidth="800">
     <app-list-detail [id]="checkedId" *ngIf="isVisible"></app-list-detail>
 </nz-modal>
+
+<app-add-product *ngIf="isAdd" [(show)]="isAdd" (changeUp)="getList()" [id]="checkedId"></app-add-product>

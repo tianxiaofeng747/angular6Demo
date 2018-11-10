@@ -23,9 +23,7 @@ export class RxDemoComponent implements OnInit {
         
       })
     );
-    result.subscribe(res =>{
-      console.log(res)
-    });
+    
     // let click = fromEvent(this.viewcontainer.element, 'click');
     // click.subscribe( (evt: MouseEvent) =>{
     //   console.log(evt);

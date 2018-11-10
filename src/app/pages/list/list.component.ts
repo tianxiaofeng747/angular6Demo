@@ -19,8 +19,9 @@ export class ListComponent implements OnInit {
   
   private keywords:String = '';
   private list:Array<any> = [];
+  isAdd:boolean = false;
   page =  {
-    pageSize: 20,
+    pageSize: 10,
     pageIndex: 1,
     total: 0
   }

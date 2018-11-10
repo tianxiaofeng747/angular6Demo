@@ -1,14 +1,15 @@
 <nz-layout>
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
     <div class="logo">
+      云平台-管理端
     </div>
     <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu>
         <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
         <ul>
-          <li nz-menu-item>Tom</li>
-          <li nz-menu-item>Bill</li>
-          <li nz-menu-item>Alex</li>
+          <li nz-menu-item routerLink="./rx">rx</li>
+          <li nz-menu-item routerLink="./list">list</li>
+          <li nz-menu-item (click)="gotoUrl('detail')">Alex</li>
         </ul>
       </li>
       <li nz-submenu>

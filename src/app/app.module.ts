@@ -2,15 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule }    from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 
 //拦截器
 import {httpInterceptorProviders} from './http-interceptors';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './pages/list/list.component';
-import { HeroesListComponent } from './pages/hero-list/hero-list.component';
 import { OtherComponent } from './pages/other/other.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +20,7 @@ import { ListDetailComponent } from './pages/list/list-detail/list-detail.compon
 import { FileListComponent } from './components/file-list/file-list.component';
 import { MyBoxerDirective } from './directive/my-boxer.directive';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AddProductComponent } from './pages/list/mods/add-product/add-product.component';
 
 
 registerLocaleData(zh);
@@ -31,14 +29,14 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     ListComponent,
-    HeroesListComponent,
     OtherComponent,
     LoginComponent,
     RxDemoComponent,
     ListDetailComponent,
     FileListComponent,
     MyBoxerDirective,
-    DashboardComponent
+    DashboardComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
